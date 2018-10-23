@@ -9,32 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="FIR-dt-nZE">
-            <objects>
-                <viewController id="yNL-0V-c5i" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rc9-ua-0TC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" text="Where woud you like to go?" translatesAutoresizingMaskIntoConstraints="NO" id="kWU-KQ-OVr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="kWU-KQ-OVr" firstAttribute="leading" secondItem="sMx-uu-HXY" secondAttribute="leading" id="BN0-uC-kBX"/>
-                            <constraint firstItem="kWU-KQ-OVr" firstAttribute="top" secondItem="sMx-uu-HXY" secondAttribute="top" id="T6R-S4-zP2"/>
-                            <constraint firstItem="kWU-KQ-OVr" firstAttribute="trailing" secondItem="sMx-uu-HXY" secondAttribute="trailing" id="VRw-RD-p4g"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sMx-uu-HXY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zuz-LK-4i7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="18" y="413"/>
-        </scene>
         <!--Trips List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -95,9 +69,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="HlJ-z9-qDQ"/>
-                    <connections>
-                        <segue destination="yNL-0V-c5i" kind="presentation" identifier="addTripSegue" id="dPC-0m-iv9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
