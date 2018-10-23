@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F126D1EB217FCED5003D6082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1EA217FCED5003D6082 /* AppDelegate.swift */; };
-		F126D1ED217FCED5003D6082 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1EC217FCED5003D6082 /* ViewController.swift */; };
+		F126D1ED217FCED5003D6082 /* TripsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1EC217FCED5003D6082 /* TripsListViewController.swift */; };
 		F126D1F0217FCED5003D6082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F126D1EE217FCED5003D6082 /* Main.storyboard */; };
 		F126D1F3217FCED5003D6082 /* TravelApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F126D1F1217FCED5003D6082 /* TravelApp.xcdatamodeld */; };
 		F126D1F5217FCED7003D6082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F126D1F4217FCED7003D6082 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		F126D1E7217FCED5003D6082 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F126D1EA217FCED5003D6082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F126D1EC217FCED5003D6082 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F126D1EC217FCED5003D6082 /* TripsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewController.swift; sourceTree = "<group>"; };
 		F126D1EF217FCED5003D6082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F126D1F2217FCED5003D6082 /* TravelApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelApp.xcdatamodel; sourceTree = "<group>"; };
 		F126D1F4217FCED7003D6082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				F126D1EA217FCED5003D6082 /* AppDelegate.swift */,
-				F126D1EC217FCED5003D6082 /* ViewController.swift */,
+				F126D1EC217FCED5003D6082 /* TripsListViewController.swift */,
 				F126D1EE217FCED5003D6082 /* Main.storyboard */,
 				F126D1F4217FCED7003D6082 /* Assets.xcassets */,
 				F126D1F6217FCED7003D6082 /* LaunchScreen.storyboard */,
@@ -138,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F126D1ED217FCED5003D6082 /* ViewController.swift in Sources */,
+				F126D1ED217FCED5003D6082 /* TripsListViewController.swift in Sources */,
 				F126D1EB217FCED5003D6082 /* AppDelegate.swift in Sources */,
 				F126D1F3217FCED5003D6082 /* TravelApp.xcdatamodeld in Sources */,
 			);
