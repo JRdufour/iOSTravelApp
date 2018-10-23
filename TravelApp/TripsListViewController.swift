@@ -8,13 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TripsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Your Trips"
+        let addTripButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTrip))
+        self.navigationItem.rightBarButtonItem = addTripButton
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @objc func addTrip(){
+        //add code to add a trip
+        
+    }
 
 }
+
+
 
