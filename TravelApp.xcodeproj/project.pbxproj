@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		976426FFED1BBE5E74049240 /* libPods-TravelApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A84AE38C9DC4066CAC0AFF31 /* libPods-TravelApp.a */; };
 		F126D1EB217FCED5003D6082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1EA217FCED5003D6082 /* AppDelegate.swift */; };
 		F126D1ED217FCED5003D6082 /* TripsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1EC217FCED5003D6082 /* TripsListViewController.swift */; };
 		F126D1F0217FCED5003D6082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F126D1EE217FCED5003D6082 /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		122491864B636A1CF8337216 /* Pods-TravelApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelApp/Pods-TravelApp.debug.xcconfig"; sourceTree = "<group>"; };
+		45EA07CF41FF42D8BB6BC6B8 /* Pods-TravelApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelApp/Pods-TravelApp.release.xcconfig"; sourceTree = "<group>"; };
+		A84AE38C9DC4066CAC0AFF31 /* libPods-TravelApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravelApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F126D1E7217FCED5003D6082 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F126D1EA217FCED5003D6082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F126D1EC217FCED5003D6082 /* TripsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				976426FFED1BBE5E74049240 /* libPods-TravelApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E968DAE2D87E0F87A89FB72 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				122491864B636A1CF8337216 /* Pods-TravelApp.debug.xcconfig */,
+				45EA07CF41FF42D8BB6BC6B8 /* Pods-TravelApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DBD0ADD8F22A34E37BE7660 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A84AE38C9DC4066CAC0AFF31 /* libPods-TravelApp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F126D1DE217FCED5003D6082 = {
 			isa = PBXGroup;
 			children = (
 				F126D1E9217FCED5003D6082 /* TravelApp */,
 				F126D1E8217FCED5003D6082 /* Products */,
+				5E968DAE2D87E0F87A89FB72 /* Pods */,
+				7DBD0ADD8F22A34E37BE7660 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F126D1FC217FCED7003D6082 /* Build configuration list for PBXNativeTarget "TravelApp" */;
 			buildPhases = (
+				0962C0B9B615BF26E67967B8 /* [CP] Check Pods Manifest.lock */,
 				F126D1E3217FCED5003D6082 /* Sources */,
 				F126D1E4217FCED5003D6082 /* Frameworks */,
 				F126D1E5217FCED5003D6082 /* Resources */,
+				87CB7B0AC5391C50080A3A62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +158,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0962C0B9B615BF26E67967B8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TravelApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87CB7B0AC5391C50080A3A62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TravelApp/Pods-TravelApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TravelApp/Pods-TravelApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F126D1E3217FCED5003D6082 /* Sources */ = {
@@ -284,6 +361,7 @@
 		};
 		F126D1FD217FCED7003D6082 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 122491864B636A1CF8337216 /* Pods-TravelApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +379,7 @@
 		};
 		F126D1FE217FCED7003D6082 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EA07CF41FF42D8BB6BC6B8 /* Pods-TravelApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
