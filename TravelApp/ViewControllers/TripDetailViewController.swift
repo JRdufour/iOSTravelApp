@@ -15,7 +15,6 @@ class TripDetailViewController: UIViewController {
         super.viewDidLoad()
 
         let addTripButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addLocation))
-        
         self.navigationItem.rightBarButtonItem = addTripButton
         // Do any additional setup after loading the view.
     }
