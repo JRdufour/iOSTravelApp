@@ -14,16 +14,11 @@ class TripsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Trips"
-        let addLocationButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTrip))
-        self.navigationItem.rightBarButtonItem = addLocationButton
+
         
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    @objc func addTrip(){
-        //add code to add a trip
-        self.performSegue(withIdentifier: "tripDetailSegue", sender: self)
-    }
 
 }
 

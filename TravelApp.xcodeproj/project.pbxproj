@@ -16,6 +16,7 @@
 		F126D1F8217FCED7003D6082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F126D1F6217FCED7003D6082 /* LaunchScreen.storyboard */; };
 		F126D200217FF766003D6082 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1FF217FF766003D6082 /* TripDetailViewController.swift */; };
 		F1BD28632193572600EBDF7D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD28622193572600EBDF7D /* PlaceDetailViewController.swift */; };
+		F1BD28652193624000EBDF7D /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD28642193624000EBDF7D /* AddTripViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F126D1F9217FCED7003D6082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F126D1FF217FF766003D6082 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
 		F1BD28622193572600EBDF7D /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		F1BD28642193624000EBDF7D /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				F126D1FF217FF766003D6082 /* TripDetailViewController.swift */,
 				F126D1EC217FCED5003D6082 /* TripsListViewController.swift */,
 				F1BD28622193572600EBDF7D /* PlaceDetailViewController.swift */,
+				F1BD28642193624000EBDF7D /* AddTripViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				F1BD28632193572600EBDF7D /* PlaceDetailViewController.swift in Sources */,
 				F126D200217FF766003D6082 /* TripDetailViewController.swift in Sources */,
 				F126D1F3217FCED5003D6082 /* TravelApp.xcdatamodeld in Sources */,
+				F1BD28652193624000EBDF7D /* AddTripViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

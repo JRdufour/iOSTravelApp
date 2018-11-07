@@ -14,19 +14,16 @@ class TripDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let addTripButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addLocation))
-        self.navigationItem.rightBarButtonItem = addTripButton
-        // Do any additional setup after loading the view.
+
     }
     
 
-    @objc func addLocation(){
-        //add code to add a trip
+    @IBAction func AddLocation(_ sender: Any) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
         present(autocompleteController, animated: true, completion: nil)
-        
     }
+
     /*
     // MARK: - Navigation
 
