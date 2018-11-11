@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravelApp/ViewControllers/AddTripViewController.swift"
-            timestampString = "563661432.1109329"
+            timestampString = "563661868.596575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravelApp/ViewControllers/AddTripViewController.swift"
-            timestampString = "563661432.111517"
+            timestampString = "563661868.596723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "31"
@@ -38,11 +38,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravelApp/ViewControllers/AddTripViewController.swift"
-            timestampString = "563661432.111828"
+            timestampString = "563661868.596827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -54,11 +54,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravelApp/ViewControllers/AddTripViewController.swift"
-            timestampString = "563661432.11212"
+            timestampString = "563661868.596922"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -70,11 +70,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TravelApp/ViewControllers/AddTripViewController.swift"
-            timestampString = "563661432.112389"
+            timestampString = "563661868.597013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
