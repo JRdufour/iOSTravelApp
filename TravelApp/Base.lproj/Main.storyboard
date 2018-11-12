@@ -71,7 +71,7 @@
                     <navigationItem key="navigationItem" id="HlJ-z9-qDQ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yCs-Fg-r3W">
                             <connections>
-                                <segue destination="aSe-8M-AxL" kind="popoverPresentation" popoverAnchorBarButtonItem="yCs-Fg-r3W" id="pVZ-Xa-zF1">
+                                <segue destination="aSe-8M-AxL" kind="popoverPresentation" identifier="addNewTripSegue" popoverAnchorBarButtonItem="yCs-Fg-r3W" id="pVZ-Xa-zF1">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>

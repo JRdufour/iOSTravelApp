@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import CoreData
 
 class AddTripViewController: UITableViewController {
     //MARK: Outlets
@@ -16,6 +17,7 @@ class AddTripViewController: UITableViewController {
     @IBOutlet var endDatePicker: UIDatePicker!
     var locationManager: CLLocationManager!
     @IBOutlet var startingPlaceLabel: UILabel!
+    var moc: NSManagedObjectContext!
     
     
     override func viewDidLoad() {
@@ -51,7 +53,11 @@ class AddTripViewController: UITableViewController {
     //    print("trip added")
         print("trip added")
         //TODO add trip to the database
-        
+        if let tripName = tripNameTextField.text{
+            let newTrip = Trip(context: moc)
+            newTrip.name = tripName
+            
+        }
         
         self.dismiss(animated: true, completion: nil)
     }
