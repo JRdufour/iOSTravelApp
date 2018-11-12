@@ -109,10 +109,10 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="e2L-cH-IBL" secondAttribute="trailing" id="6c5-q3-e2b"/>
-                                                <constraint firstAttribute="bottom" secondItem="e2L-cH-IBL" secondAttribute="bottom" id="DkL-cj-RJ0"/>
-                                                <constraint firstItem="e2L-cH-IBL" firstAttribute="top" secondItem="zBh-Xx-dhn" secondAttribute="top" id="GZC-KI-Mzr"/>
-                                                <constraint firstItem="e2L-cH-IBL" firstAttribute="leading" secondItem="zBh-Xx-dhn" secondAttribute="leading" id="NB8-L9-OLD"/>
+                                                <constraint firstItem="e2L-cH-IBL" firstAttribute="top" secondItem="zBh-Xx-dhn" secondAttribute="top" id="1dt-10-0Bx"/>
+                                                <constraint firstItem="e2L-cH-IBL" firstAttribute="leading" secondItem="zBh-Xx-dhn" secondAttribute="leading" id="EAs-vg-0wR"/>
+                                                <constraint firstAttribute="trailing" secondItem="e2L-cH-IBL" secondAttribute="trailing" id="H3b-jc-WDK"/>
+                                                <constraint firstAttribute="bottom" secondItem="e2L-cH-IBL" secondAttribute="bottom" id="b2r-Jy-vaP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -120,25 +120,25 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Starting Location" id="yaO-8P-hwT">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="detailButton" rowHeight="51" id="0Ap-Xu-TnD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" editingAccessoryType="detailButton" rowHeight="51" id="0Ap-Xu-TnD">
                                         <rect key="frame" x="0.0" y="162.5" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Ap-Xu-TnD" id="efE-Oi-RFo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngw-13-feL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKM-H0-aTe">
+                                                    <rect key="frame" x="16" y="11" width="317" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ngw-13-feL" firstAttribute="top" secondItem="efE-Oi-RFo" secondAttribute="top" id="47v-XH-zZx"/>
-                                                <constraint firstAttribute="trailing" secondItem="ngw-13-feL" secondAttribute="trailing" id="D3o-rG-gLn"/>
-                                                <constraint firstItem="ngw-13-feL" firstAttribute="leading" secondItem="efE-Oi-RFo" secondAttribute="leading" id="XcH-ng-ShG"/>
-                                                <constraint firstAttribute="bottom" secondItem="ngw-13-feL" secondAttribute="bottom" id="pJj-uK-p1Z"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OKM-H0-aTe" secondAttribute="trailing" id="4h4-tu-Xq0"/>
+                                                <constraint firstItem="OKM-H0-aTe" firstAttribute="top" secondItem="efE-Oi-RFo" secondAttribute="topMargin" id="Q0P-fM-Sx4"/>
+                                                <constraint firstItem="OKM-H0-aTe" firstAttribute="bottom" secondItem="efE-Oi-RFo" secondAttribute="bottomMargin" id="Qm9-jf-B9p"/>
+                                                <constraint firstItem="OKM-H0-aTe" firstAttribute="leading" secondItem="efE-Oi-RFo" secondAttribute="leadingMargin" id="hb7-72-knR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -212,6 +212,7 @@
                     <connections>
                         <outlet property="endDatePicker" destination="YC5-OI-G1P" id="et0-PB-Mrk"/>
                         <outlet property="startDatePicker" destination="mah-wl-lyc" id="p2Q-Xu-5XU"/>
+                        <outlet property="startingPlaceLabel" destination="OKM-H0-aTe" id="VpZ-dL-nem"/>
                         <outlet property="tripNameTextField" destination="e2L-cH-IBL" id="hBw-Xf-Qwy"/>
                     </connections>
                 </tableViewController>

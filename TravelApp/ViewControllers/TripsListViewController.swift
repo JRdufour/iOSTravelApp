@@ -10,15 +10,11 @@ import UIKit
 import GooglePlaces
 
 class TripsListViewController: UIViewController {
-    private var locationManager: CLLocationManager!
-    
+  //  private var locationManager: CLLocationManager!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Trips"
-
-        self.locationManager = CLLocationManager()
-        locationManager.requestWhenInUseAuthorization()
-
 
         // Do any additional setup after loading the view, typically from a nib.
     }
