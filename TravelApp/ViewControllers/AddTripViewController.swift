@@ -15,16 +15,20 @@ class AddTripViewController: UITableViewController {
     @IBOutlet var tripNameTextField: UITextField!
     @IBOutlet var startDatePicker: UIDatePicker!
     @IBOutlet var endDatePicker: UIDatePicker!
-    var locationManager: CLLocationManager!
     @IBOutlet var startingPlaceLabel: UILabel!
+    
     var moc: NSManagedObjectContext!
+    var locationManager: CLLocationManager!
+    var tempPlaceId: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New Trip"
         
-        
+        if self.moc != nil{
+            print("moc good")
+        }
         // Do any additional setup after loading the view.
 //        let placesClient = GMSPlacesClient.shared()
 //        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
@@ -50,15 +54,28 @@ class AddTripViewController: UITableViewController {
     
     
     @IBAction func AddTrip(_ sender: Any) {
-    //    print("trip added")
-        print("trip added")
-        //TODO add trip to the database
-        if let tripName = tripNameTextField.text{
-            let newTrip = Trip(context: moc)
-            newTrip.name = tripName
-            
-        }
+        //check that the name text field isnt empty
+        if tripNameTextField.text?.isEmpty ?? true {
+            let alert = UIAlertController(title: "Name Your Trip", message: "Your trip requires a name to be created.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+            return
+        } else {
         
+        
+        //add the new trip to db
+        let newTrip = Trip(context: moc)
+        newTrip.name = tripNameTextField.text
+        newTrip.startDate = startDatePicker.date
+        newTrip.endDate = endDatePicker.date
+        
+        let newDestination = Destination(context: moc)
+        newDestination.trip? = newTrip
+        newDestination.name = "TEST"
+        newDestination.placeId = "PLACE"
+        save()
+        
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -91,6 +108,7 @@ class AddTripViewController: UITableViewController {
 extension AddTripViewController: GMSAutocompleteViewControllerDelegate{
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         startingPlaceLabel.text = place.name
+        
         dismiss(animated: true, completion: nil)
 
     }
@@ -105,7 +123,15 @@ extension AddTripViewController: GMSAutocompleteViewControllerDelegate{
 
     }
     
-
+    
+    func save(){
+        do{
+            try moc.save()
+        }catch let error {
+            print("we have an error saving - \(error)")
+            self.moc.rollback()
+        }
+    }
     
     
 
