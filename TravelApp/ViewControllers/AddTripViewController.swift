@@ -20,7 +20,7 @@ class AddTripViewController: UITableViewController {
     var moc: NSManagedObjectContext!
     var locationManager: CLLocationManager!
     var tempPlaceId: String?
-    
+    var startingPlace: GMSPlace?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +60,12 @@ class AddTripViewController: UITableViewController {
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
             self.present(alert, animated: true, completion: nil)
             return
-        } else {
-        
+        } else if startingPlace == nil{
+            let alert = UIAlertController(title: "Add Starting Location", message: "Please add the location you wish to start your trip", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: nil ))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         //add the new trip to db
         let newTrip = Trip(context: moc)
@@ -69,14 +73,15 @@ class AddTripViewController: UITableViewController {
         newTrip.startDate = startDatePicker.date
         newTrip.endDate = endDatePicker.date
         
-//        let newDestination = Destination(context: moc)
-//        newDestination.trip? = newTrip
-//        newDestination.name = "TEST"
-//        newDestination.placeId = "PLACE"
+        if let location = startingPlace{
+        let newDestination = Destination(context: moc)
+        newDestination.name = location.name
+        newDestination.placeId = location.placeID
+        newTrip.addToDestinations(newDestination)
+        }
         print("adding trip...")
         save()
         
-        }
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -109,7 +114,7 @@ class AddTripViewController: UITableViewController {
 extension AddTripViewController: GMSAutocompleteViewControllerDelegate{
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         startingPlaceLabel.text = place.name
-        
+        startingPlace = place
         dismiss(animated: true, completion: nil)
 
     }

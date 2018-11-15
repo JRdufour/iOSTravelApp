@@ -70,7 +70,14 @@ extension TripsListViewController: UITableViewDataSource {
         
         cell.TripNameLabel.text = trip.name
         cell.TripDatesLabel.text = trip.startDate?.description
-        cell.loadFirstPhotoForPlace(placeID: "ChIJa4hPtcEqO4gRUdz8J5XUbLY")
+        
+        if let destinations = trip.destinations{
+            //TODO get the first destination for the trip
+            
+        }
+            
+        
+      //  cell.loadFirstPhotoForPlace(placeID: )
         return cell
         
     }
