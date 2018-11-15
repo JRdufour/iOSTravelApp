@@ -69,10 +69,11 @@ class AddTripViewController: UITableViewController {
         newTrip.startDate = startDatePicker.date
         newTrip.endDate = endDatePicker.date
         
-        let newDestination = Destination(context: moc)
-        newDestination.trip? = newTrip
-        newDestination.name = "TEST"
-        newDestination.placeId = "PLACE"
+//        let newDestination = Destination(context: moc)
+//        newDestination.trip? = newTrip
+//        newDestination.name = "TEST"
+//        newDestination.placeId = "PLACE"
+        print("adding trip...")
         save()
         
         }
