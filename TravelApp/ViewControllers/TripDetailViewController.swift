@@ -14,18 +14,27 @@ class TripDetailViewController: UIViewController {
     
     var trip: Trip!
     var moc: NSManagedObjectContext!
+    var destinations: [Destination]!
 
+    @IBOutlet var tripNameLabel: UILabel!
+    @IBOutlet var tripDatesLabel: UILabel!
+    @IBOutlet var destinationsTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tripNameLabel.text = trip.name?.capitalized
+        //TODO set the dates for the trip
+        if let allDestinations = trip.destinations{
+            self.destinations = Array(allDestinations) as! [Destination]
+        } else{
+            self.destinations = []
+        }
         
+        
+        self.destinationsTableView.dataSource = self
     }
     
 
-    @IBAction func AddLocation(_ sender: Any) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        present(autocompleteController, animated: true, completion: nil)
-    }
 
     /*
     // MARK: - Navigation
@@ -39,37 +48,19 @@ class TripDetailViewController: UIViewController {
 
 }
 
-extension TripDetailViewController: GMSAutocompleteViewControllerDelegate{
-    //handle the user's selection.
-    
-    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        dismiss(animated: true, completion: nil)
+extension TripDetailViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(trip.destinations?.count)
+        return self.destinations.count
     }
     
-    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tripDetailCell")!
+        cell.textLabel?.text = self.destinations[indexPath.row].name
+        
+        return cell
     }
-    
-    // User canceled the operation.
-    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    // Turn the network activity indicator on and off again.
-    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
     
     
 }
-
 
