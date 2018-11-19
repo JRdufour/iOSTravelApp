@@ -8,8 +8,12 @@
 
 import UIKit
 import GooglePlaces
+import CoreData
 
 class TripDetailViewController: UIViewController {
+    
+    var trip: Trip!
+    var moc: NSManagedObjectContext!
 
     override func viewDidLoad() {
         super.viewDidLoad()

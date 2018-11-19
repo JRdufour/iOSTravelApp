@@ -45,7 +45,15 @@ class TripsListViewController: UIViewController {
             let vc = segue.destination as! UINavigationController
             let targetVc = vc.topViewController as! AddTripViewController
             targetVc.moc = self.moc
-            
+        }
+        
+        if segue.identifier == "tripDetailSegue"{
+            let targetVC = segue.destination as! TripDetailViewController
+           // let targetVC = vc.topViewController as! TripDetailViewController
+            targetVC.moc = self.moc
+            if let indexPath = tripListTableView.indexPathForSelectedRow{
+                targetVC.trip = fetchedResultsController.object(at: indexPath)
+            } else { return }
             
         }
     }
@@ -82,6 +90,8 @@ extension TripsListViewController: UITableViewDelegate {
            //tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+   
 }
 
 

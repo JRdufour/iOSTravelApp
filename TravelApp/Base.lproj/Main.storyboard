@@ -75,6 +75,7 @@
                                             <outlet property="TripDatesLabel" destination="2cE-ev-yeM" id="eVz-YY-yJN"/>
                                             <outlet property="TripImage" destination="Ak9-az-hYr" id="S6f-ik-Eqc"/>
                                             <outlet property="TripNameLabel" destination="oGs-WF-27k" id="sn2-7k-WZa"/>
+                                            <segue destination="AWz-I2-dbE" kind="show" identifier="tripDetailSegue" id="Ksy-6M-jhI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -247,13 +248,13 @@
         <!--TripDetailViewController-->
         <scene sceneID="ViZ-0V-573">
             <objects>
-                <viewController id="AWz-I2-dbE" userLabel="TripDetailViewController" sceneMemberID="viewController">
+                <viewController id="AWz-I2-dbE" userLabel="TripDetailViewController" customClass="TripDetailViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Kx-lq-vW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RvM-9u-sMy">
-                                <rect key="frame" x="0.0" y="28" width="375" height="99.5"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="99.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TripName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkw-xB-SiY">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50.5"/>
@@ -270,7 +271,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EFF-RG-fV5">
-                                <rect key="frame" x="0.0" y="127.5" width="375" height="495.5"/>
+                                <rect key="frame" x="0.0" y="171.5" width="375" height="451.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yh2-hR-5Mq">
@@ -305,7 +306,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgU-ZF-MJM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="-653.52323838080963"/>
+            <point key="canvasLocation" x="2516" y="-143.47826086956522"/>
         </scene>
         <!--PlaceDetailViewController-->
         <scene sceneID="4GD-1K-ESJ">
@@ -316,7 +317,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DNR-E7-9Kw">
-                                <rect key="frame" x="98" y="30" width="179" height="70.5"/>
+                                <rect key="frame" x="98" y="74" width="179" height="70.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKc-bZ-JjB">
                                         <rect key="frame" x="0.0" y="0.0" width="179" height="42"/>
@@ -333,19 +334,19 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E1g-9M-WBx">
-                                <rect key="frame" x="0.0" y="110.5" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="154.5" width="375" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Fe3-QH-9jq"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agenda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkl-nZ-dkE">
-                                <rect key="frame" x="8" y="246.5" width="100.5" height="36"/>
+                                <rect key="frame" x="8" y="290.5" width="100.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Csn-8e-Fou">
-                                <rect key="frame" x="0.0" y="290.5" width="375" height="332.5"/>
+                                <rect key="frame" x="0.0" y="334.5" width="375" height="288.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Saw-P9-Qce">
@@ -378,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkW-sf-mXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4621.6000000000004" y="-575.26236881559225"/>
+            <point key="canvasLocation" x="3656.8000000000002" y="-109.29535232383809"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F2D-Qe-b2r">
