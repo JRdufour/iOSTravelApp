@@ -53,19 +53,17 @@ class TripsListViewController: UIViewController {
             targetVC.moc = self.moc
             if let indexPath = tripListTableView.indexPathForSelectedRow{
                 targetVC.trip = fetchedResultsController.object(at: indexPath)
+                let selectedCell =  tripListTableView.cellForRow(at: indexPath) as! TripPageTableViewCell
+                if let image = selectedCell.TripImage.image{
+                    targetVC.image = image
+                }
             } else { return }
+            
             
         }
     }
     
-    func save(){
-        do{
-            try moc.save()
-        }catch let error {
-            print("we have an error saving - \(error)")
-            self.moc.rollback()
-        }
-    }
+    
 }
 
 //MARK: Table view delegate extension
@@ -137,8 +135,15 @@ extension TripsListViewController: UITableViewDataSource {
         
     }
     
-       
     
+    func save(){
+        do{
+            try moc.save()
+        }catch let error {
+            print("we have an error saving - \(error)")
+            self.moc.rollback()
+        }
+    }
 }
 
 

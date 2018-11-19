@@ -15,10 +15,13 @@ class TripDetailViewController: UIViewController {
     var trip: Trip!
     var moc: NSManagedObjectContext!
     var destinations: [Destination]!
+    var image: UIImage?
 
     @IBOutlet var tripNameLabel: UILabel!
     @IBOutlet var tripDatesLabel: UILabel!
     @IBOutlet var destinationsTableView: UITableView!
+    @IBOutlet var tripImage: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +32,11 @@ class TripDetailViewController: UIViewController {
         } else{
             self.destinations = []
         }
-        
-        
         self.destinationsTableView.dataSource = self
+        
+        if let image = image{
+            self.tripImage.image = image
+        }
     }
     
 
@@ -46,6 +51,14 @@ class TripDetailViewController: UIViewController {
     }
     */
 
+    //MARK: actions
+    @IBAction func addDestination(_ sender: Any) {
+        //TODO
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+
+    }
 }
 
 extension TripDetailViewController: UITableViewDataSource{
@@ -64,3 +77,32 @@ extension TripDetailViewController: UITableViewDataSource{
     
 }
 
+extension TripDetailViewController: GMSAutocompleteViewControllerDelegate{
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+       
+        self.trip.destinations?.adding(place)
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        print("cancelled")
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    func save(){
+        do{
+            try moc.save()
+        }catch let error {
+            print("we have an error saving - \(error)")
+            self.moc.rollback()
+        }
+    }
+}
