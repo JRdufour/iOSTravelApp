@@ -45,15 +45,51 @@ class TripsListViewController: UIViewController {
             let vc = segue.destination as! UINavigationController
             let targetVc = vc.topViewController as! AddTripViewController
             targetVc.moc = self.moc
+        }
+        
+        if segue.identifier == "tripDetailSegue"{
+            let targetVC = segue.destination as! TripDetailViewController
+           // let targetVC = vc.topViewController as! TripDetailViewController
+            targetVC.moc = self.moc
+            if let indexPath = tripListTableView.indexPathForSelectedRow{
+                targetVC.trip = fetchedResultsController.object(at: indexPath)
+                let selectedCell =  tripListTableView.cellForRow(at: indexPath) as! TripPageTableViewCell
+                if let image = selectedCell.TripImage.image{
+                    targetVC.image = image
+                }
+            } else { return }
             
             
         }
     }
+    
+    
 }
 
 //MARK: Table view delegate extension
 extension TripsListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            //alert asking to confirm delete
+            //let cell = tripListTableView.cellForRow(at: indexPath)
+            let trip = fetchedResultsController.object(at: indexPath)
+            //ask to confirm delete
+            var deleteMessage = "Are you sure you want to delete your trip "
+            deleteMessage += trip.name ?? "?"
+            let alert = UIAlertController(title: "Delete Trip", message: deleteMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .cancel , handler: nil ))
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { _ in
+                self.moc.delete(trip)
+                self.save()
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return
+            
+           //tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
     
+   
 }
 
 
@@ -65,15 +101,32 @@ extension TripsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tripListCell") as! TripPageTableViewCell
-        
+        cell.TripImage.image = nil
         let trip = fetchedResultsController.object(at: indexPath)
         
-        cell.TripNameLabel.text = trip.name
-        cell.TripDatesLabel.text = trip.startDate?.description
+        cell.TripNameLabel.text = trip.name?.capitalized
+        
+        let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.locale = Locale(identifier: "en_US")
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .none
+            return formatter
+        }()
+        if let date = trip.startDate{
+            cell.TripDatesLabel.text = dateFormatter.string(from: date
+            )
+            
+        }
         
         if let destinations = trip.destinations{
             //TODO get the first destination for the trip
-            
+            let destinationArray = Array(destinations)
+            if let firstDestinaton = destinationArray.first as? Destination{
+            let id = firstDestinaton.placeId!
+            cell.loadFirstPhotoForPlace(placeID: id)
+
+            }
         }
             
         
@@ -82,8 +135,15 @@ extension TripsListViewController: UITableViewDataSource {
         
     }
     
-       
     
+    func save(){
+        do{
+            try moc.save()
+        }catch let error {
+            print("we have an error saving - \(error)")
+            self.moc.rollback()
+        }
+    }
 }
 
 

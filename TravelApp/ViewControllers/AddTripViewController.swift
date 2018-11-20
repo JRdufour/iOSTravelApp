@@ -113,7 +113,7 @@ class AddTripViewController: UITableViewController {
 
 extension AddTripViewController: GMSAutocompleteViewControllerDelegate{
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        startingPlaceLabel.text = place.name
+        startingPlaceLabel.text = place.name.localizedCapitalized
         startingPlace = place
         dismiss(animated: true, completion: nil)
 
@@ -138,7 +138,4 @@ extension AddTripViewController: GMSAutocompleteViewControllerDelegate{
             self.moc.rollback()
         }
     }
-    
-    
-
 }
