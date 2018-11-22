@@ -15,20 +15,23 @@ class TripPageTableViewCell: UITableViewCell {
     @IBOutlet var TripDatesLabel: UILabel!
     @IBOutlet var TripImage: UIImageView!
     @IBOutlet var cardView: UIView!
+    @IBOutlet var shadowView: UIView!
     
+    let cornerRadius = CGFloat(10.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
-       // cardView.clipsToBounds = true
-        cardView.layer.cornerRadius = 20.0
+        cardView.clipsToBounds = true
+        cardView.layer.cornerRadius = self.cornerRadius
         //cardView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMaxYCorner]
         
-        cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        cardView.layer.shadowOpacity = 0.6
-        cardView.layer.shadowRadius = 2.0
+        shadowView.layer.cornerRadius = self.cornerRadius
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        shadowView.layer.shadowOpacity = 0.6
+        shadowView.layer.shadowRadius = 2.0
         
     }
 

@@ -17,74 +17,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="108" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-0T-EYA">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="125" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-0T-EYA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tripListCell" rowHeight="175" id="FZP-DK-9eP" customClass="TripPageTableViewCell" customModule="TravelApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="175"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tripListCell" rowHeight="125" id="FZP-DK-9eP" customClass="TripPageTableViewCell" customModule="TravelApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZP-DK-9eP" id="yNO-xm-6Xz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cg8-Fe-WrR" userLabel="CardView">
-                                                    <rect key="frame" x="15" y="11" width="345" height="153"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2r-EN-ugd" userLabel="shadowView">
+                                                    <rect key="frame" x="15" y="11" width="345" height="103"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vqW-ia-PHL">
-                                                            <rect key="frame" x="158" y="8" width="187" height="54.5"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cg8-Fe-WrR" userLabel="CardView">
+                                                            <rect key="frame" x="0.0" y="0.0" width="345" height="103"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oGs-WF-27k">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
-                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cE-ev-yeM">
-                                                                    <rect key="frame" x="0.0" y="34" width="42" height="20.5"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vqW-ia-PHL">
+                                                                    <rect key="frame" x="158" y="8" width="187" height="54.5"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="oGs-WF-27k">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cE-ev-yeM">
+                                                                            <rect key="frame" x="0.0" y="34" width="42" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="oGs-WF-27k" secondAttribute="trailing" id="iwN-2i-To8"/>
+                                                                        <constraint firstItem="oGs-WF-27k" firstAttribute="leading" secondItem="vqW-ia-PHL" secondAttribute="leading" id="pEa-0e-Qwr"/>
+                                                                    </constraints>
+                                                                </stackView>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="293" verticalHuggingPriority="251" horizontalCompressionResistancePriority="771" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-az-hYr" userLabel="PlaceImage">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="103"/>
+                                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="150" id="daX-6L-pWk"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
+                                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="oGs-WF-27k" secondAttribute="trailing" id="iwN-2i-To8"/>
-                                                                <constraint firstItem="oGs-WF-27k" firstAttribute="leading" secondItem="vqW-ia-PHL" secondAttribute="leading" id="pEa-0e-Qwr"/>
+                                                                <constraint firstAttribute="trailing" secondItem="vqW-ia-PHL" secondAttribute="trailing" id="NvX-Ho-c6X"/>
+                                                                <constraint firstItem="Ak9-az-hYr" firstAttribute="leading" secondItem="Cg8-Fe-WrR" secondAttribute="leading" id="UcS-7H-JH1"/>
+                                                                <constraint firstItem="vqW-ia-PHL" firstAttribute="top" secondItem="Cg8-Fe-WrR" secondAttribute="top" constant="8" id="XMH-rG-PWS"/>
+                                                                <constraint firstItem="Ak9-az-hYr" firstAttribute="top" secondItem="Cg8-Fe-WrR" secondAttribute="top" id="blR-li-TA6"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Ak9-az-hYr" secondAttribute="bottom" id="bnG-3A-QCf"/>
+                                                                <constraint firstItem="vqW-ia-PHL" firstAttribute="leading" secondItem="Ak9-az-hYr" secondAttribute="trailing" constant="8" id="q9P-7C-PLC"/>
                                                             </constraints>
-                                                        </stackView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="293" verticalHuggingPriority="251" horizontalCompressionResistancePriority="771" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ak9-az-hYr" userLabel="PlaceImage">
-                                                            <rect key="frame" x="0.0" y="0.0" width="150" height="153"/>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="daX-6L-pWk"/>
-                                                            </constraints>
-                                                        </imageView>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="vqW-ia-PHL" secondAttribute="trailing" id="NvX-Ho-c6X"/>
-                                                        <constraint firstItem="Ak9-az-hYr" firstAttribute="leading" secondItem="Cg8-Fe-WrR" secondAttribute="leading" id="UcS-7H-JH1"/>
-                                                        <constraint firstItem="vqW-ia-PHL" firstAttribute="top" secondItem="Cg8-Fe-WrR" secondAttribute="top" constant="8" id="XMH-rG-PWS"/>
-                                                        <constraint firstItem="Ak9-az-hYr" firstAttribute="top" secondItem="Cg8-Fe-WrR" secondAttribute="top" id="blR-li-TA6"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Ak9-az-hYr" secondAttribute="bottom" id="bnG-3A-QCf"/>
-                                                        <constraint firstItem="vqW-ia-PHL" firstAttribute="leading" secondItem="Ak9-az-hYr" secondAttribute="trailing" constant="8" id="q9P-7C-PLC"/>
+                                                        <constraint firstItem="Cg8-Fe-WrR" firstAttribute="top" secondItem="e2r-EN-ugd" secondAttribute="top" id="STc-bi-afQ"/>
+                                                        <constraint firstItem="Cg8-Fe-WrR" firstAttribute="leading" secondItem="e2r-EN-ugd" secondAttribute="leading" id="U8W-04-dfh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Cg8-Fe-WrR" secondAttribute="trailing" id="gka-So-XtY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Cg8-Fe-WrR" secondAttribute="bottom" id="iHh-Fx-G5r"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Cg8-Fe-WrR" secondAttribute="bottom" id="56B-jU-IH3"/>
-                                                <constraint firstItem="Cg8-Fe-WrR" firstAttribute="top" secondItem="yNO-xm-6Xz" secondAttribute="topMargin" id="BBo-Es-v5j"/>
-                                                <constraint firstItem="Cg8-Fe-WrR" firstAttribute="leading" secondItem="yNO-xm-6Xz" secondAttribute="leadingMargin" id="dgX-0D-TyI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Cg8-Fe-WrR" secondAttribute="trailing" id="eJ9-Fi-8qe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e2r-EN-ugd" secondAttribute="trailing" id="RWY-Q6-RFE"/>
+                                                <constraint firstItem="e2r-EN-ugd" firstAttribute="leading" secondItem="yNO-xm-6Xz" secondAttribute="leadingMargin" id="exh-yk-XlY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="e2r-EN-ugd" secondAttribute="bottom" id="qku-zN-Wef"/>
+                                                <constraint firstItem="e2r-EN-ugd" firstAttribute="top" secondItem="yNO-xm-6Xz" secondAttribute="topMargin" id="wvl-ni-0p4"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="TripDatesLabel" destination="2cE-ev-yeM" id="eVz-YY-yJN"/>
                                             <outlet property="TripImage" destination="Ak9-az-hYr" id="S6f-ik-Eqc"/>
                                             <outlet property="TripNameLabel" destination="oGs-WF-27k" id="sn2-7k-WZa"/>
                                             <outlet property="cardView" destination="Cg8-Fe-WrR" id="5t3-60-nSH"/>
+                                            <outlet property="contentView" destination="yNO-xm-6Xz" id="vGU-TM-fIn"/>
+                                            <outlet property="shadowView" destination="e2r-EN-ugd" id="3Ok-6J-vNH"/>
                                             <segue destination="AWz-I2-dbE" kind="show" identifier="tripDetailSegue" id="Ksy-6M-jhI"/>
                                         </connections>
                                     </tableViewCell>
