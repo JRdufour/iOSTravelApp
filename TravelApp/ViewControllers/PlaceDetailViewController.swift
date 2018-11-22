@@ -7,12 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class PlaceDetailViewController: UIViewController {
-
+    
+    //MARK: Outlets
+    @IBOutlet var placeNameLabel: UILabel!
+    @IBOutlet var placeDatesLabel: UILabel!
+    @IBOutlet var placeImageView: UIImageView!
+    @IBOutlet var agendaTableVIew: UITableView!
+    
+    var moc: NSManagedObjectContext!
+    var destination: Destination?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let dest = self.destination{
+            placeNameLabel.text = dest.name
+            
+        }
         // Do any additional setup after loading the view.
     }
     

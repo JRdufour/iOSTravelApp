@@ -280,15 +280,15 @@
                                 <rect key="frame" x="0.0" y="396.5" width="375" height="226.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tripDetailCell" textLabel="LRE-as-vLC" style="IBUITableViewCellStyleDefault" id="yh2-hR-5Mq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tripDetailCell" textLabel="LRE-as-vLC" style="IBUITableViewCellStyleDefault" id="yh2-hR-5Mq">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yh2-hR-5Mq" id="Wy3-pW-Y2D">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LRE-as-vLC">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -297,7 +297,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="CFt-8y-YZY" kind="show" id="Wad-9l-1hf"/>
+                                            <segue destination="CFt-8y-YZY" kind="show" identifier="placeDetailSegue" id="Wad-9l-1hf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -341,7 +341,7 @@
         <!--PlaceDetailViewController-->
         <scene sceneID="4GD-1K-ESJ">
             <objects>
-                <viewController id="CFt-8y-YZY" userLabel="PlaceDetailViewController" sceneMemberID="viewController">
+                <viewController id="CFt-8y-YZY" userLabel="PlaceDetailViewController" customClass="PlaceDetailViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNU-KB-sEb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,6 +406,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R8g-aJ-3R2"/>
                     </view>
+                    <connections>
+                        <outlet property="agendaTableVIew" destination="Csn-8e-Fou" id="kOk-tR-kbl"/>
+                        <outlet property="placeDatesLabel" destination="m4s-pR-2dS" id="tfr-PH-XQM"/>
+                        <outlet property="placeImageView" destination="E1g-9M-WBx" id="nQj-dp-UEF"/>
+                        <outlet property="placeNameLabel" destination="xKc-bZ-JjB" id="Nlt-dR-TMN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkW-sf-mXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

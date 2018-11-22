@@ -28,7 +28,7 @@ class TripDetailViewController: UIViewController {
         self.tripNameLabel.text = trip.name?.capitalized
         //TODO set the dates for the trip
         if let allDestinations = trip.destinations{
-            self.destinations = Array(allDestinations) as! [Destination]
+            self.destinations = Array(allDestinations) as? [Destination]
         } else{
             self.destinations = []
         }
@@ -37,6 +37,23 @@ class TripDetailViewController: UIViewController {
         if let image = image{
             self.tripImage.image = image
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   
+        
+        if segue.identifier == "placeDetailSegue"{
+            let targetVC = segue.destination as! PlaceDetailViewController
+            // let targetVC = vc.topViewController as! TripDetailViewController
+            targetVC.moc = self.moc
+            if let indexPath = destinationsTableView.indexPathForSelectedRow{
+                    let targetDestination = destinations[indexPath.row]
+                    targetVC.destination = targetDestination
+                    targetVC.moc = self.moc
+                }
+            } else { return }
+        
+        
     }
     
 
@@ -63,8 +80,8 @@ class TripDetailViewController: UIViewController {
 
 extension TripDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(trip.destinations?.count)
-        return self.destinations.count
+       // print(trip.destinations?.count)
+        return self.destinations.count 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,8 +97,16 @@ extension TripDetailViewController: UITableViewDataSource{
 extension TripDetailViewController: GMSAutocompleteViewControllerDelegate{
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
        
-        self.trip.destinations?.adding(place)
+        let newDest = Destination(context: moc)
+        newDest.placeId = place.placeID
+        newDest.name = place.name
+        newDest.trip = trip
         
+        self.trip.destinations?.adding(newDest)
+        save()
+        //TODO
+        destinations.append(newDest)
+        destinationsTableView.reloadData()
         dismiss(animated: true, completion: nil)
         
     }
@@ -106,3 +131,5 @@ extension TripDetailViewController: GMSAutocompleteViewControllerDelegate{
         }
     }
 }
+
+

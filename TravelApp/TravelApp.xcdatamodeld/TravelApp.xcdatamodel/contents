@@ -9,7 +9,7 @@
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="destinations" toMany="YES" deletionRule="Nullify" destinationEntity="Destination" inverseName="trip" inverseEntity="Destination" syncable="YES"/>
+        <relationship name="destinations" toMany="YES" deletionRule="Cascade" destinationEntity="Destination" inverseName="trip" inverseEntity="Destination" syncable="YES"/>
     </entity>
     <elements>
         <element name="Destination" positionX="-54" positionY="18" width="128" height="90"/>
