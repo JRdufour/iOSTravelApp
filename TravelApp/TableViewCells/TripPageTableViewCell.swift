@@ -17,7 +17,7 @@ class TripPageTableViewCell: UITableViewCell {
     @IBOutlet var cardView: UIView!
     @IBOutlet var shadowView: UIView!
     
-    let cornerRadius = CGFloat(10.0)
+    let cornerRadius = CGFloat(5.0)
     
     override func awakeFromNib() {
         super.awakeFromNib()

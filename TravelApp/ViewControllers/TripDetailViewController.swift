@@ -17,10 +17,17 @@ class TripDetailViewController: UIViewController {
     var destinations: [Destination]!
     var image: UIImage?
 
+    @IBOutlet var roundedView: UIView!
     @IBOutlet var tripNameLabel: UILabel!
     @IBOutlet var tripDatesLabel: UILabel!
     @IBOutlet var destinationsTableView: UITableView!
     @IBOutlet var tripImage: UIImageView!
+    @IBOutlet var reversedImage: UIImageView!
+    
+    @IBOutlet var shadowView: UIView!
+    
+    
+    let cornerRadius = CGFloat(5.0)
 
     
     override func viewDidLoad() {
@@ -36,7 +43,21 @@ class TripDetailViewController: UIViewController {
         
         if let image = image{
             self.tripImage.image = image
+            self.reversedImage.image = UIImage(cgImage: image.cgImage!
+                , scale: 1.0, orientation: UIImage.Orientation.downMirrored)
         }
+        
+        
+        
+        //table view styling
+        roundedView.clipsToBounds = true
+        roundedView.layer.cornerRadius = cornerRadius
+        
+        shadowView.layer.cornerRadius = cornerRadius
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        shadowView.layer.shadowOpacity = 0.6
+        shadowView.layer.shadowRadius = 2.0
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

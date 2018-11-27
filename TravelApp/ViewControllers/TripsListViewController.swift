@@ -48,7 +48,8 @@ class TripsListViewController: UIViewController {
         }
         
         if segue.identifier == "tripDetailSegue"{
-            let targetVC = segue.destination as! TripDetailViewController
+            let navVC = segue.destination as! UITabBarController
+            let targetVC = navVC.viewControllers![0] as! TripDetailViewController
            // let targetVC = vc.topViewController as! TripDetailViewController
             targetVC.moc = self.moc
             if let indexPath = tripListTableView.indexPathForSelectedRow{
