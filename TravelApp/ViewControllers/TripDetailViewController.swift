@@ -25,6 +25,8 @@ class TripDetailViewController: UIViewController {
     @IBOutlet var reversedImage: UIImageView!
     
     @IBOutlet var shadowView: UIView!
+    @IBOutlet var addDestinationButton: UIButton!
+    @IBOutlet var editTripButton: UIButton!
     
     
     let cornerRadius = CGFloat(5.0)
@@ -47,17 +49,29 @@ class TripDetailViewController: UIViewController {
                 , scale: 1.0, orientation: UIImage.Orientation.downMirrored)
         }
         
+        let dateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM dd"
+            return formatter
+        }()
+        
+        if let startDate = trip.startDate,  let endDate = trip.endDate {
+            tripDatesLabel.text = dateFormatter.string(from: startDate) + " - " + dateFormatter.string(from: endDate)
+        }
         
         
         //table view styling
         roundedView.clipsToBounds = true
         roundedView.layer.cornerRadius = cornerRadius
+        addDestinationButton.layer.cornerRadius = cornerRadius
+        editTripButton.layer.cornerRadius = cornerRadius
         
         shadowView.layer.cornerRadius = cornerRadius
         shadowView.layer.shadowColor = UIColor.black.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         shadowView.layer.shadowOpacity = 0.6
         shadowView.layer.shadowRadius = 2.0
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
