@@ -75,14 +75,16 @@ class TripDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   
-        
         if segue.identifier == "placeDetailSegue"{
             let targetVC = segue.destination as! PlaceDetailViewController
             // let targetVC = vc.topViewController as! TripDetailViewController
+            
             targetVC.moc = self.moc
             if let indexPath = destinationsTableView.indexPathForSelectedRow{
                     let targetDestination = destinations[indexPath.row]
+                    let placeImage = PlaceImage()
+                    placeImage.fetchPlaceImage(forDestination: targetDestination)
+                    targetVC.placeImage = placeImage
                     targetVC.destination = targetDestination
                     targetVC.moc = self.moc
                 }

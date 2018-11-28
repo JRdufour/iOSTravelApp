@@ -11,21 +11,24 @@ import UIKit
 import GooglePlaces
 
 class PlaceImage{
-    
     var image: UIImage?
     
-    func fetchPlaceImage(forDestination destination: Destination) -> UIImage? {
-        if let id = destination.placeId{
-            
-        } else {
-            return nil
-        }
-        
-        
-        
-        
-        return nil
+    
+    
+    
+    
+    func saveImage(imageToSave image: UIImage){
+       // let imageData: NSData
     }
+    
+    
+    func fetchPlaceImage(forDestination destination: Destination) {
+        if let id = destination.placeId {
+            loadFirstPhotoForPlace(placeID: id)
+        }
+    }
+    
+    
 
     func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
@@ -51,5 +54,5 @@ class PlaceImage{
             }
         }
     }
-        
+    
 }

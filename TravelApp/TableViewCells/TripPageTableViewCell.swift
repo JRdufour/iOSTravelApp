@@ -42,6 +42,7 @@ class TripPageTableViewCell: UITableViewCell {
     }
 
     func loadFirstPhotoForPlace(placeID: String) {
+        
         GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
             if let error = error {
                 // TODO: handle the error.

@@ -19,6 +19,7 @@ class PlaceDetailViewController: UIViewController {
     
     var moc: NSManagedObjectContext!
     var destination: Destination?
+    var placeImage: PlaceImage?
     
     
     override func viewDidLoad() {
@@ -26,7 +27,7 @@ class PlaceDetailViewController: UIViewController {
 
         if let dest = self.destination{
             placeNameLabel.text = dest.name
-            
+            placeImageView.image = placeImage?.image
         }
         // Do any additional setup after loading the view.
     }
