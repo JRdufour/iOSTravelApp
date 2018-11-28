@@ -15,6 +15,7 @@
 		F126D1F5217FCED7003D6082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F126D1F4217FCED7003D6082 /* Assets.xcassets */; };
 		F126D1F8217FCED7003D6082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F126D1F6217FCED7003D6082 /* LaunchScreen.storyboard */; };
 		F126D200217FF766003D6082 /* TripDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F126D1FF217FF766003D6082 /* TripDetailViewController.swift */; };
+		F17BFB5621AEF56900BA7A83 /* PlaceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17BFB5521AEF56900BA7A83 /* PlaceImage.swift */; };
 		F1AD0919219D03FE006D1489 /* TripPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AD0918219D03FE006D1489 /* TripPageTableViewCell.swift */; };
 		F1BD28632193572600EBDF7D /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD28622193572600EBDF7D /* PlaceDetailViewController.swift */; };
 		F1BD28652193624000EBDF7D /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD28642193624000EBDF7D /* AddTripViewController.swift */; };
@@ -33,6 +34,7 @@
 		F126D1F7217FCED7003D6082 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F126D1F9217FCED7003D6082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F126D1FF217FF766003D6082 /* TripDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailViewController.swift; sourceTree = "<group>"; };
+		F17BFB5521AEF56900BA7A83 /* PlaceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImage.swift; sourceTree = "<group>"; };
 		F1AD0918219D03FE006D1489 /* TripPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripPageTableViewCell.swift; sourceTree = "<group>"; };
 		F1BD28622193572600EBDF7D /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		F1BD28642193624000EBDF7D /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 		F126D1E9217FCED5003D6082 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				F17BFB5421AEF55600BA7A83 /* Helpers */,
 				F1AD0917219D03C2006D1489 /* TableViewCells */,
 				F1BD2861219356FD00EBDF7D /* ViewControllers */,
 				F126D1EA217FCED5003D6082 /* AppDelegate.swift */,
@@ -98,6 +101,14 @@
 				F126D1F1217FCED5003D6082 /* TravelApp.xcdatamodeld */,
 			);
 			path = TravelApp;
+			sourceTree = "<group>";
+		};
+		F17BFB5421AEF55600BA7A83 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F17BFB5521AEF56900BA7A83 /* PlaceImage.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F1AD0917219D03C2006D1489 /* TableViewCells */ = {
@@ -246,6 +257,7 @@
 				F126D1ED217FCED5003D6082 /* TripsListViewController.swift in Sources */,
 				F126D1EB217FCED5003D6082 /* AppDelegate.swift in Sources */,
 				F1BD28632193572600EBDF7D /* PlaceDetailViewController.swift in Sources */,
+				F17BFB5621AEF56900BA7A83 /* PlaceImage.swift in Sources */,
 				F126D200217FF766003D6082 /* TripDetailViewController.swift in Sources */,
 				F126D1F3217FCED5003D6082 /* TravelApp.xcdatamodeld in Sources */,
 				F1AD0919219D03FE006D1489 /* TripPageTableViewCell.swift in Sources */,
