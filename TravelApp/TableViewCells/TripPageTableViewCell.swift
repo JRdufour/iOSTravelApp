@@ -49,19 +49,21 @@ class TripPageTableViewCell: UITableViewCell {
                 print("Error: \(error.localizedDescription)")
             } else {
                 if let firstPhoto = photos?.results.first {
-                    self.loadImageForMetadata(photoMetadata: firstPhoto)
+                    self.saveImageForMetadata(photoMetadata: firstPhoto, forKey: placeID)
                 }
             }
         }
     }
     
-    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+    func saveImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, forKey key: String) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
             (photo, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
+                ImageManager.saveImage(imageToSave: photo!, forKey: key)
+                ImageManager.retrieveImage(forKey: key)
                 self.TripImage.image = photo;
                 //self.attributionTextView.attributedText = photoMetadata.attributions;
             }

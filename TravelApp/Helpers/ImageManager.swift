@@ -9,26 +9,25 @@
 import Foundation
 import UIKit
 import GooglePlaces
+import CoreData
+class ImageManager{
+    
+    static func saveImage(imageToSave image: UIImage, forKey key: String, managedObjectContext moc: NSManagedObjectContext){
+        //convert image to NSData
+        let imageData: NSData = image.pngData()! as NSData
+       //save the image
+        
+    }
+    
+    static func retrieveImage(forKey key: String) -> UIImage?{
+        let data = UserDefaults.standard.object(forKey: key) as! NSData
+        return UIImage(data: data as Data)
+    }
+    
+    //function that will tell if a file exists in UserDefaults, if it does, return it, if it doesn't find one from google and save it to user defaults
+    
+    
 
-class PlaceImage{
-    var image: UIImage?
-    
-    
-    
-    
-    
-    func saveImage(imageToSave image: UIImage){
-       // let imageData: NSData
-    }
-    
-    
-    func fetchPlaceImage(forDestination destination: Destination) {
-        if let id = destination.placeId {
-            loadFirstPhotoForPlace(placeID: id)
-        }
-    }
-    
-    
 
     func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
@@ -37,7 +36,7 @@ class PlaceImage{
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-                self.image = photo
+             //   self.image = photo
             }
         })
     }

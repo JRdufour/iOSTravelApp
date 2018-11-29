@@ -12,6 +12,10 @@
         <relationship name="agendaItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AgendaItem" inverseName="destination" inverseEntity="AgendaItem" syncable="YES"/>
         <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="destinations" inverseEntity="Trip" syncable="YES"/>
     </entity>
+    <entity name="PlaceImage" representedClassName="PlaceImage" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="placeID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
@@ -23,5 +27,6 @@
         <element name="Destination" positionX="-54" positionY="18" width="128" height="120"/>
         <element name="Trip" positionX="-63" positionY="-18" width="128" height="120"/>
         <element name="AgendaItem" positionX="-45" positionY="36" width="128" height="90"/>
+        <element name="PlaceImage" positionX="-36" positionY="63" width="128" height="75"/>
     </elements>
 </model>

@@ -82,9 +82,6 @@ class TripDetailViewController: UIViewController {
             targetVC.moc = self.moc
             if let indexPath = destinationsTableView.indexPathForSelectedRow{
                     let targetDestination = destinations[indexPath.row]
-                    let placeImage = PlaceImage()
-                    placeImage.fetchPlaceImage(forDestination: targetDestination)
-                    targetVC.placeImage = placeImage
                     targetVC.destination = targetDestination
                     targetVC.moc = self.moc
                 }
