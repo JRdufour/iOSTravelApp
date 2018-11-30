@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import CoreData
+import GooglePlaces
+
 class ImageManager{
     
     static func saveImage(imageToSave image: UIImage, forDestination dest: Destination, managedObjectContext moc: NSManagedObjectContext){
@@ -31,4 +33,32 @@ class ImageManager{
      return nil
     }
     
+    static func saveFirstPhotoForPlace(destination: Destination, moc: NSManagedObjectContext) {
+        
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: destination.placeId!) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    self.saveImageForMetadata(photoMetadata: firstPhoto, forDestination: destination, moc: moc)
+                }
+            }
+        }
+    }
+    
+    static func saveImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, forDestination dest: Destination, moc: NSManagedObjectContext) {
+        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
+            (photo, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                //self.TripImage.image = photo;
+                if let pic = photo {
+                    ImageManager.saveImage(imageToSave: pic, forDestination: dest, managedObjectContext: moc)
+                }
+            }
+        })
+    }
 }

@@ -122,7 +122,7 @@ extension TripsListViewController: UITableViewDataSource {
                 let destinationArray = Array(destinations)
                 if let firstDestinaton = destinationArray.first as? Destination{
                 //let id = firstDestinaton.placeId!
-                cell.SaveFirstPhotoForPlace(destination: firstDestinaton, moc: moc)
+                ImageManager.saveFirstPhotoForPlace(destination: firstDestinaton, moc: moc)
                     
                 if let image = ImageManager.retrieveImage(forDestination: firstDestinaton) {
                     cell.TripImage.image = image

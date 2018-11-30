@@ -44,32 +44,5 @@ class TripPageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func SaveFirstPhotoForPlace(destination: Destination, moc: NSManagedObjectContext) {
-        
-        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: destination.placeId!) { (photos, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-                if let firstPhoto = photos?.results.first {
-                    self.saveImageForMetadata(photoMetadata: firstPhoto, forDestination: destination, moc: moc)
-                }
-            }
-        }
-    }
     
-    func saveImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, forDestination dest: Destination, moc: NSManagedObjectContext) {
-        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
-            (photo, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-                //self.TripImage.image = photo;
-                if let pic = photo {
-                    ImageManager.saveImage(imageToSave: pic, forDestination: dest, managedObjectContext: moc)
-                }
-            }
-        })
-    }
 }
