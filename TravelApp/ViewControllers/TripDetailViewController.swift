@@ -76,8 +76,8 @@ class TripDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "placeDetailSegue"{
-            let targetVC = segue.destination as! PlaceDetailViewController
-            // let targetVC = vc.topViewController as! TripDetailViewController
+            let vc = segue.destination as! UITabBarController
+             let targetVC = vc.viewControllers![0] as! PlaceDetailViewController
             
             targetVC.moc = self.moc
             if let indexPath = destinationsTableView.indexPathForSelectedRow{

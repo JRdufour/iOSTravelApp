@@ -348,7 +348,7 @@
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <segue destination="CFt-8y-YZY" kind="show" identifier="placeDetailSegue" id="Wad-9l-1hf"/>
+                                                            <segue destination="lTs-cS-lky" kind="show" id="71d-Fp-BcH"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -513,7 +513,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Csn-8e-Fou">
-                                <rect key="frame" x="0.0" y="290.5" width="375" height="332.5"/>
+                                <rect key="frame" x="0.0" y="290.5" width="375" height="327.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Saw-P9-Qce">
@@ -543,6 +543,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R8g-aJ-3R2"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="r3I-5m-Hb1"/>
                     <connections>
                         <outlet property="agendaTableVIew" destination="Csn-8e-Fou" id="kOk-tR-kbl"/>
                         <outlet property="placeDatesLabel" destination="m4s-pR-2dS" id="tfr-PH-XQM"/>
@@ -552,7 +553,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkW-sf-mXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4596" y="-109.29535232383809"/>
+            <point key="canvasLocation" x="5535.1999999999998" y="-109.29535232383809"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="uVY-Ud-WNp">
+            <objects>
+                <viewController id="1eR-LU-EMY" userLabel="Map View Controller" customClass="MapViewController" customModule="TravelApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4XY-PE-mNs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W0K-yH-FDT">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W0K-yH-FDT" firstAttribute="leading" secondItem="wK2-Um-h38" secondAttribute="leading" id="JOj-la-RZo"/>
+                            <constraint firstItem="wK2-Um-h38" firstAttribute="bottom" secondItem="W0K-yH-FDT" secondAttribute="bottom" id="ZkI-eH-72z"/>
+                            <constraint firstItem="W0K-yH-FDT" firstAttribute="trailing" secondItem="wK2-Um-h38" secondAttribute="trailing" id="pVk-Wq-vl6"/>
+                            <constraint firstItem="W0K-yH-FDT" firstAttribute="top" secondItem="wK2-Um-h38" secondAttribute="top" id="y0v-Ay-MHr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wK2-Um-h38"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="ohL-sl-ecf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P3P-ZA-fPi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6586.3999999999996" y="-82.3088455772114"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="F2D-Qe-b2r">
@@ -592,6 +621,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0u-PN-IBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="-1064.6176911544228"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="j5i-k6-8E2">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="lTs-cS-lky" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4V2-Fk-MAw">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="CFt-8y-YZY" kind="relationship" relationship="viewControllers" id="Upx-hk-0ly"/>
+                        <segue destination="1eR-LU-EMY" kind="relationship" relationship="viewControllers" id="Dgj-RU-V8B"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJn-PC-GEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4596" y="-95.802098950524751"/>
         </scene>
     </scenes>
     <resources>

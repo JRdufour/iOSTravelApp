@@ -62,8 +62,8 @@ class TripPageTableViewCell: UITableViewCell {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-                ImageManager.saveImage(imageToSave: photo!, forKey: key)
-                ImageManager.retrieveImage(forKey: key)
+               // ImageManager.saveImage(imageToSave: photo!, forKey: key)
+               // ImageManager.retrieveImage(forKey: key)
                 self.TripImage.image = photo;
                 //self.attributionTextView.attributedText = photoMetadata.attributions;
             }
