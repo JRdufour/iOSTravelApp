@@ -31,6 +31,7 @@ class MapViewController: UIViewController {
                     MapHelper.addMarker(forDestination: dests[i], onMap: mapView, withColor: UIColor.blue)
                 }
             }
+            MapHelper.addPath(forDestinations: dests, onMap: mapView)
         }
         // Do any additional setup after loading the view.
     }

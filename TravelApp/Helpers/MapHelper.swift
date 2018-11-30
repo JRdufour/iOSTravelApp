@@ -23,5 +23,18 @@ class MapHelper{
         marker.map = map
     }
 
+    static func addPath(forDestinations destinations: [Destination], onMap map: GMSMapView){
+        
+        let path: GMSMutablePath = GMSMutablePath()
+        
+        for i in 0...(destinations.count-1){
+            path.add(CLLocationCoordinate2D(latitude: destinations[i].latitude, longitude: destinations[i].longitude))
+        }
+
+        let rectangle = GMSPolyline(path: path)
+        rectangle.map = map
+
+        
+    }
     
 }
