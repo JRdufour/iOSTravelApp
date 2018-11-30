@@ -11,15 +11,18 @@ import GoogleMaps
 
 class MapViewController: UIViewController {
 
+    var destination: Destination!
     @IBOutlet var mapView: UIView!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 12)
+        
+        let camera = GMSCameraPosition.camera(withLatitude: destination.latitude, longitude: destination.longitude, zoom: 2)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         self.view = mapView
+//        
+        MapHelper.addMarker(forDestination: destination, onMap: mapView)
         // Do any additional setup after loading the view.
     }
     

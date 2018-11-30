@@ -77,12 +77,14 @@ class TripDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "placeDetailSegue"{
             let vc = segue.destination as! UITabBarController
-             let targetVC = vc.viewControllers![0] as! PlaceDetailViewController
-            
+            let targetVC = vc.viewControllers![0] as! PlaceDetailViewController
+            let mapVC = vc.viewControllers![1] as! MapViewController
+           
             targetVC.moc = self.moc
             if let indexPath = destinationsTableView.indexPathForSelectedRow{
                     let targetDestination = destinations[indexPath.row]
                     targetVC.destination = targetDestination
+                    mapVC.destination = targetDestination
                     targetVC.moc = self.moc
                 }
             } else { return }
@@ -134,6 +136,8 @@ extension TripDetailViewController: GMSAutocompleteViewControllerDelegate{
         let newDest = Destination(context: moc)
         newDest.placeId = place.placeID
         newDest.name = place.name
+        newDest.longitude = place.coordinate.longitude
+        newDest.latitude = place.coordinate.latitude
         newDest.trip = trip
         
         self.trip.destinations?.adding(newDest)

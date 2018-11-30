@@ -348,7 +348,7 @@
                                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <segue destination="lTs-cS-lky" kind="show" id="71d-Fp-BcH"/>
+                                                            <segue destination="lTs-cS-lky" kind="show" identifier="placeDetailSegue" id="71d-Fp-BcH"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
