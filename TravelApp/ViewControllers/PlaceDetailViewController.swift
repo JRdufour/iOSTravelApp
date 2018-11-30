@@ -16,6 +16,8 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet var placeDatesLabel: UILabel!
     @IBOutlet var placeImageView: UIImageView!
     @IBOutlet var agendaTableVIew: UITableView!
+    @IBOutlet var placeImageInverted: UIImageView!
+    
     
     var moc: NSManagedObjectContext!
     var destination: Destination?
@@ -29,6 +31,8 @@ class PlaceDetailViewController: UIViewController {
             placeNameLabel.text = dest.name
             if let photo = ImageManager.retrieveImage(forDestination: dest){
                 placeImageView.image = photo
+                self.placeImageInverted.image = UIImage(cgImage: photo.cgImage!
+                    , scale: 1.0, orientation: UIImage.Orientation.downMirrored)
             }
         }
         // Do any additional setup after loading the view.
