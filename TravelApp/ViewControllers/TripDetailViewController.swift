@@ -85,6 +85,7 @@ class TripDetailViewController: UIViewController {
                     let targetDestination = destinations[indexPath.row]
                     targetVC.destination = targetDestination
                     mapVC.destination = targetDestination
+                    mapVC.destinations = destinations
                     targetVC.moc = self.moc
                 }
             } else { return }

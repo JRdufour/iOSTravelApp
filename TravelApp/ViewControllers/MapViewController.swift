@@ -12,17 +12,26 @@ import GoogleMaps
 class MapViewController: UIViewController {
 
     var destination: Destination!
+    var destinations: [Destination]?
+    
     @IBOutlet var mapView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        let camera = GMSCameraPosition.camera(withLatitude: destination.latitude, longitude: destination.longitude, zoom: 2)
+        let camera = GMSCameraPosition.camera(withLatitude: destination.latitude, longitude: destination.longitude, zoom: 7)
         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
         self.view = mapView
-//        
-        MapHelper.addMarker(forDestination: destination, onMap: mapView)
+        
+        MapHelper.addMarker(forDestination: destination, onMap: mapView, withColor: nil)
+        if let dests = destinations {
+            for i in 0...(dests.count - 1)  {
+                if dests[i] != destination {
+                    MapHelper.addMarker(forDestination: dests[i], onMap: mapView, withColor: UIColor.blue)
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
