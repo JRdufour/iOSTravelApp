@@ -56,6 +56,7 @@ class ImageManager{
             } else {
                 //self.TripImage.image = photo;
                 if let pic = photo {
+                    print("SAVING GOOGLE IMAGE")
                     ImageManager.saveImage(imageToSave: pic, forDestination: dest, managedObjectContext: moc)
                 }
             }

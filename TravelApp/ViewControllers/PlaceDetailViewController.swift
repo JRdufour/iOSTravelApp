@@ -27,6 +27,9 @@ class PlaceDetailViewController: UIViewController {
 
         if let dest = self.destination{
             placeNameLabel.text = dest.name
+            if let photo = ImageManager.retrieveImage(forDestination: dest){
+                placeImageView.image = photo
+            }
         }
         // Do any additional setup after loading the view.
     }
