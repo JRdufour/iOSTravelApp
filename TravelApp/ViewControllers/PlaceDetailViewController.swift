@@ -18,10 +18,15 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet var agendaTableVIew: UITableView!
     @IBOutlet var placeImageInverted: UIImageView!
     
+    @IBOutlet var roundedView: UIView!
+    @IBOutlet var shadowView: UIView!
+    
     
     var moc: NSManagedObjectContext!
     var destination: Destination?
     
+    let cornerRadius = CGFloat(5.0)
+
     
     
     override func viewDidLoad() {
@@ -34,6 +39,15 @@ class PlaceDetailViewController: UIViewController {
                 self.placeImageInverted.image = UIImage(cgImage: photo.cgImage!
                     , scale: 1.0, orientation: UIImage.Orientation.downMirrored)
             }
+            
+            roundedView.clipsToBounds = true
+            roundedView.layer.cornerRadius = cornerRadius
+            
+            shadowView.layer.cornerRadius = cornerRadius
+            shadowView.layer.shadowColor = UIColor.black.cgColor
+            shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+            shadowView.layer.shadowOpacity = 0.6
+            shadowView.layer.shadowRadius = 2.0
         }
         // Do any additional setup after loading the view.
     }
