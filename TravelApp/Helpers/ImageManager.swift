@@ -8,50 +8,27 @@
 
 import Foundation
 import UIKit
-import GooglePlaces
 import CoreData
 class ImageManager{
     
-    static func saveImage(imageToSave image: UIImage, forKey key: String, managedObjectContext moc: NSManagedObjectContext){
+    static func saveImage(imageToSave image: UIImage, forDestination dest: Destination, managedObjectContext moc: NSManagedObjectContext){
         //convert image to NSData
         let imageData: NSData = image.pngData()! as NSData
        //save the image
+        dest.image = imageData as Data
         
-    }
-    
-    static func retrieveImage(forKey key: String) -> UIImage?{
-        let data = UserDefaults.standard.object(forKey: key) as! NSData
-        return UIImage(data: data as Data)
-    }
-    
-    //function that will tell if a file exists in UserDefaults, if it does, return it, if it doesn't find one from google and save it to user defaults
-    
-    
-
-
-    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
-        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
-            (photo, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-             //   self.image = photo
-            }
-        })
-    }
-
-    func loadFirstPhotoForPlace(placeID: String) {
-        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-                if let firstPhoto = photos?.results.first {
-                    self.loadImageForMetadata(photoMetadata: firstPhoto)
-                }
-            }
+        do{
+            try moc.save()
+        }catch{
+            
         }
+    }
+    static func retrieveImage(forDestination dest: Destination) -> UIImage?{
+      
+        if let data = dest.image{
+            return UIImage(data: data)
+        }
+     return nil
     }
     
 }
