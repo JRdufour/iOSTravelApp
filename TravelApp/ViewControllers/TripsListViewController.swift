@@ -48,7 +48,7 @@ class TripsListViewController: UIViewController {
         }
         
         if segue.identifier == "tripDetailSegue"{
-            let targetVC = segue.destination as! TripDetailViewController
+            let targetVC =  segue.destination as! TripDetailViewController
            // let targetVC = vc.topViewController as! TripDetailViewController
             targetVC.moc = self.moc
             if let indexPath = tripListTableView.indexPathForSelectedRow{
@@ -104,18 +104,16 @@ extension TripsListViewController: UITableViewDataSource {
         cell.TripImage.image = nil
         let trip = fetchedResultsController.object(at: indexPath)
         
+        
         cell.TripNameLabel.text = trip.name?.capitalized
         
         let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US")
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
+            formatter.dateFormat = "MMM dd"
             return formatter
         }()
         if let date = trip.startDate{
-            cell.TripDatesLabel.text = dateFormatter.string(from: date
-            )
+            cell.TripDatesLabel.text = dateFormatter.string(from: date)
             
         }
         
@@ -124,8 +122,7 @@ extension TripsListViewController: UITableViewDataSource {
             let destinationArray = Array(destinations)
             if let firstDestinaton = destinationArray.first as? Destination{
             let id = firstDestinaton.placeId!
-            cell.loadFirstPhotoForPlace(placeID: id)
-
+                cell.loadFirstPhotoForPlace(placeID: id)
             }
         }
             

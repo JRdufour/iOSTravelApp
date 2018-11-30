@@ -77,6 +77,8 @@ class AddTripViewController: UITableViewController {
         let newDestination = Destination(context: moc)
         newDestination.name = location.name
         newDestination.placeId = location.placeID
+        newDestination.latitude = location.coordinate.latitude
+        newDestination.longitude = location.coordinate.longitude
         newTrip.addToDestinations(newDestination)
         }
         print("adding trip...")
