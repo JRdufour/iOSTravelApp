@@ -25,10 +25,12 @@ class ImageManager{
             
         }
     }
-    static func retrieveImage(forDestination dest: Destination) -> UIImage?{
+    static func retrieveImage(forDestination dest: Destination, moc: NSManagedObjectContext) -> UIImage?{
       
         if let data = dest.image{
             return UIImage(data: data)
+        } else {
+            saveFirstPhotoForPlace(destination: dest, moc: moc)
         }
      return nil
     }

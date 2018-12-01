@@ -34,7 +34,7 @@ class PlaceDetailViewController: UIViewController {
 
         if let dest = self.destination{
             placeNameLabel.text = dest.name
-            if let photo = ImageManager.retrieveImage(forDestination: dest){
+            if let photo = ImageManager.retrieveImage(forDestination: dest, moc: moc){
                 placeImageView.image = photo
                 self.placeImageInverted.image = UIImage(cgImage: photo.cgImage!
                     , scale: 1.0, orientation: UIImage.Orientation.downMirrored)
@@ -52,7 +52,11 @@ class PlaceDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addAgendaItem(_ sender: Any) {
+        //open agenda view controller - blank
+        
+    }
+    
     /*
     // MARK: - Navigation
 

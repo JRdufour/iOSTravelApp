@@ -18,6 +18,9 @@ class TripsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Trips"
+        //ad a notification listner
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(managedObjectContextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
         
         self.tripListTableView.delegate = self
         self.tripListTableView.dataSource = self
@@ -39,6 +42,10 @@ class TripsListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    deinit {
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: .NSManagedObjectContextObjectsDidChange, object: nil)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewTripSegue"{
@@ -63,8 +70,12 @@ class TripsListViewController: UIViewController {
         }
     }
     
-    
+    @objc func managedObjectContextDidChange(notification: NSNotification){
+        tripListTableView.reloadData()
+    }
 }
+
+
 
 //MARK: Table view delegate extension
 extension TripsListViewController: UITableViewDelegate {
@@ -122,9 +133,9 @@ extension TripsListViewController: UITableViewDataSource {
                 let destinationArray = Array(destinations)
                 if let firstDestinaton = destinationArray.first as? Destination{
                 //let id = firstDestinaton.placeId!
-                ImageManager.saveFirstPhotoForPlace(destination: firstDestinaton, moc: moc)
+                
                     
-                if let image = ImageManager.retrieveImage(forDestination: firstDestinaton) {
+                    if let image = ImageManager.retrieveImage(forDestination: firstDestinaton, moc: moc) {
                     cell.TripImage.image = image
                 }
             }
