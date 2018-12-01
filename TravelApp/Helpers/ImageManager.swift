@@ -18,7 +18,6 @@ class ImageManager{
         let imageData: NSData = image.pngData()! as NSData
        //save the image
         dest.image = imageData as Data
-        
         do{
             try moc.save()
         }catch{
@@ -28,7 +27,13 @@ class ImageManager{
     static func retrieveImage(forDestination dest: Destination, moc: NSManagedObjectContext) -> UIImage?{
       
         if let data = dest.image{
+            //randomly update images 
+            if arc4random_uniform(10) == 1 {
+                print("BACKING UP IMAGE")
+                saveFirstPhotoForPlace(destination: dest, moc: moc)
+            }
             return UIImage(data: data)
+            
         } else {
             saveFirstPhotoForPlace(destination: dest, moc: moc)
         }
@@ -62,6 +67,12 @@ class ImageManager{
                     ImageManager.saveImage(imageToSave: pic, forDestination: dest, managedObjectContext: moc)
                 }
             }
+        })
+    }
+    
+    static func refreshAllDestinationImages(forDestinations destinations: [Destination], moc: NSManagedObjectContext){
+        destinations.forEach({ destination in
+            print("\(destination.name) is being saved")
         })
     }
 }
