@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AgendaDetailViewController: UIViewController {
+class AgendaDetailViewController: ViewControllerSwipeDismissable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,3 +28,4 @@ class AgendaDetailViewController: UIViewController {
     */
 
 }
+

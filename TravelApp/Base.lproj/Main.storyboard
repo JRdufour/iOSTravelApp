@@ -518,27 +518,23 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="addAgendaItem:" destination="CFt-8y-YZY" eventType="touchUpInside" id="xj7-xk-EPH"/>
-                                                    <segue destination="rRW-QF-33s" kind="popoverPresentation" popoverAnchorView="dXy-bY-mPU" id="EVt-bp-erx">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
+                                                    <segue destination="rRW-QF-33s" kind="presentation" modalPresentationStyle="overFullScreen" id="EVt-bp-erx"/>
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Csn-8e-Fou">
                                                 <rect key="frame" x="8" y="52" width="335" height="280"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Saw-P9-Qce">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="agendaCell" id="Saw-P9-Qce">
                                                         <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Saw-P9-Qce" id="vPS-iD-TtU">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
-                                                            <segue destination="rRW-QF-33s" kind="popoverPresentation" identifier="agendaDetailSegue" popoverAnchorView="Saw-P9-Qce" id="o35-Eg-tgo">
-                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                            </segue>
+                                                            <segue destination="rRW-QF-33s" kind="presentation" identifier="agendaDetailSegue" modalPresentationStyle="overFullScreen" id="o35-Eg-tgo"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
@@ -806,6 +802,6 @@
         <image name="pin" width="43.810028076171875" height="49.286281585693359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EVt-bp-erx"/>
+        <segue reference="o35-Eg-tgo"/>
     </inferredMetricsTieBreakers>
 </document>

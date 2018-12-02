@@ -24,16 +24,31 @@ class PlaceDetailViewController: UIViewController {
     
     var moc: NSManagedObjectContext!
     var destination: Destination?
-    
+    var agenda: [AgendaItem]!
+
     let cornerRadius = CGFloat(5.0)
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        agendaTableVIew.dataSource = self
         if let dest = self.destination{
             placeNameLabel.text = dest.name
+            if let items = destination?.agendaItems {
+                self.agenda = Array(items) as? [AgendaItem]
+            }
+            var testItem = AgendaItem(context: moc)
+            testItem.title = "TEST ITEM"
+            testItem.destination = dest
+            do{
+                print("SAVING TEST ITEM")
+                try moc.save()
+                
+            } catch {
+                
+                
+            }
             if let photo = ImageManager.retrieveImage(forDestination: dest, moc: moc){
                 placeImageView.image = photo
                 self.placeImageInverted.image = UIImage(cgImage: photo.cgImage!
@@ -52,21 +67,23 @@ class PlaceDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addAgendaItem(_ sender: Any) {
-        //open agenda view controller - blank
+
+
+}
+
+extension PlaceDetailViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(agenda.count)
+        return agenda.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = agenda[indexPath.row]
+        let cell = agendaTableVIew.dequeueReusableCell(withIdentifier: "agendaCell")
+        cell?.textLabel?.text = item.title
         
+        return cell!
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    
-
 }
