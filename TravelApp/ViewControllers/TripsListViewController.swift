@@ -18,6 +18,9 @@ class TripsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Your Trips"
+        //ad a notification listner
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(managedObjectContextDidChange(notification:)), name: .NSManagedObjectContextObjectsDidChange, object: nil)
         
         self.tripListTableView.delegate = self
         self.tripListTableView.dataSource = self
@@ -39,6 +42,10 @@ class TripsListViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    deinit {
+        let center = NotificationCenter.default
+        center.removeObserver(self, name: .NSManagedObjectContextObjectsDidChange, object: nil)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewTripSegue"{
@@ -48,7 +55,7 @@ class TripsListViewController: UIViewController {
         }
         
         if segue.identifier == "tripDetailSegue"{
-            let targetVC = segue.destination as! TripDetailViewController
+            let targetVC =  segue.destination as! TripDetailViewController
            // let targetVC = vc.topViewController as! TripDetailViewController
             targetVC.moc = self.moc
             if let indexPath = tripListTableView.indexPathForSelectedRow{
@@ -63,8 +70,12 @@ class TripsListViewController: UIViewController {
         }
     }
     
-    
+    @objc func managedObjectContextDidChange(notification: NSNotification){
+        tripListTableView.reloadData()
+    }
 }
+
+
 
 //MARK: Table view delegate extension
 extension TripsListViewController: UITableViewDelegate {
@@ -104,28 +115,29 @@ extension TripsListViewController: UITableViewDataSource {
         cell.TripImage.image = nil
         let trip = fetchedResultsController.object(at: indexPath)
         
+        
         cell.TripNameLabel.text = trip.name?.capitalized
         
         let dateFormatter: DateFormatter = {
             let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US")
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .none
+            formatter.dateFormat = "MMM dd"
             return formatter
         }()
         if let date = trip.startDate{
-            cell.TripDatesLabel.text = dateFormatter.string(from: date
-            )
+            cell.TripDatesLabel.text = dateFormatter.string(from: date)
             
         }
         
         if let destinations = trip.destinations{
-            //TODO get the first destination for the trip
-            let destinationArray = Array(destinations)
-            if let firstDestinaton = destinationArray.first as? Destination{
-            let id = firstDestinaton.placeId!
-            cell.loadFirstPhotoForPlace(placeID: id)
-
+                //TODO get the first destination for the trip
+                let destinationArray = Array(destinations)
+                if let firstDestinaton = destinationArray.first as? Destination{
+                //let id = firstDestinaton.placeId!
+                
+                    
+                    if let image = ImageManager.retrieveImage(forDestination: firstDestinaton, moc: moc) {
+                    cell.TripImage.image = image
+                }
             }
         }
             
