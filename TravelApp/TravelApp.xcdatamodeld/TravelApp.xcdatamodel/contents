@@ -2,21 +2,17 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AgendaItem" representedClassName="AgendaItem" syncable="YES" codeGenerationType="class">
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="destination" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Destination" inverseName="agendaItems" inverseEntity="Destination" syncable="YES"/>
     </entity>
     <entity name="Destination" representedClassName="Destination" syncable="YES" codeGenerationType="class">
-        <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="placeId" attributeType="String" syncable="YES"/>
-        <relationship name="agendaItems" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AgendaItem" inverseName="destination" inverseEntity="AgendaItem" syncable="YES"/>
-        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Trip" inverseName="destinations" inverseEntity="Trip" syncable="YES"/>
-    </entity>
-    <entity name="PlaceImage" representedClassName="PlaceImage" syncable="YES" codeGenerationType="class">
-        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="placeID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="agendaItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AgendaItem" inverseName="destination" inverseEntity="AgendaItem" syncable="YES"/>
+        <relationship name="trip" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Trip" inverseName="destinations" inverseEntity="Trip" syncable="YES"/>
     </entity>
     <entity name="Trip" representedClassName="Trip" syncable="YES" codeGenerationType="class">
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -26,9 +22,8 @@
         <relationship name="destinations" toMany="YES" deletionRule="Cascade" destinationEntity="Destination" inverseName="trip" inverseEntity="Destination" syncable="YES"/>
     </entity>
     <elements>
+        <element name="AgendaItem" positionX="-45" positionY="36" width="128" height="90"/>
         <element name="Destination" positionX="-54" positionY="18" width="128" height="150"/>
         <element name="Trip" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="AgendaItem" positionX="-45" positionY="36" width="128" height="90"/>
-        <element name="PlaceImage" positionX="-36" positionY="63" width="128" height="75"/>
     </elements>
 </model>

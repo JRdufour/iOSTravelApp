@@ -8,50 +8,71 @@
 
 import Foundation
 import UIKit
-import GooglePlaces
 import CoreData
+import GooglePlaces
+
 class ImageManager{
     
-    static func saveImage(imageToSave image: UIImage, forKey key: String, managedObjectContext moc: NSManagedObjectContext){
+    static func saveImage(imageToSave image: UIImage, forDestination dest: Destination, managedObjectContext moc: NSManagedObjectContext){
         //convert image to NSData
         let imageData: NSData = image.pngData()! as NSData
        //save the image
+        dest.image = imageData as Data
+        do{
+            try moc.save()
+        }catch{
+            
+        }
+    }
+    static func retrieveImage(forDestination dest: Destination, moc: NSManagedObjectContext) -> UIImage?{
+      
+        if let data = dest.image{
+            //randomly update images 
+            if arc4random_uniform(10) == 1 {
+                print("BACKING UP IMAGE")
+                saveFirstPhotoForPlace(destination: dest, moc: moc)
+            }
+            return UIImage(data: data)
+            
+        } else {
+            saveFirstPhotoForPlace(destination: dest, moc: moc)
+        }
+     return nil
+    }
+    
+    static func saveFirstPhotoForPlace(destination: Destination, moc: NSManagedObjectContext) {
         
+        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: destination.placeId!) { (photos, error) -> Void in
+            if let error = error {
+                // TODO: handle the error.
+                print("Error: \(error.localizedDescription)")
+            } else {
+                if let firstPhoto = photos?.results.first {
+                    self.saveImageForMetadata(photoMetadata: firstPhoto, forDestination: destination, moc: moc)
+                }
+            }
+        }
     }
     
-    static func retrieveImage(forKey key: String) -> UIImage?{
-        let data = UserDefaults.standard.object(forKey: key) as! NSData
-        return UIImage(data: data as Data)
-    }
-    
-    //function that will tell if a file exists in UserDefaults, if it does, return it, if it doesn't find one from google and save it to user defaults
-    
-    
-
-
-    func loadImageForMetadata(photoMetadata: GMSPlacePhotoMetadata) {
+    static func saveImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, forDestination dest: Destination, moc: NSManagedObjectContext) {
         GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
             (photo, error) -> Void in
             if let error = error {
                 // TODO: handle the error.
                 print("Error: \(error.localizedDescription)")
             } else {
-             //   self.image = photo
+                //self.TripImage.image = photo;
+                if let pic = photo {
+                    print("SAVING GOOGLE IMAGE")
+                    ImageManager.saveImage(imageToSave: pic, forDestination: dest, managedObjectContext: moc)
+                }
             }
         })
     }
-
-    func loadFirstPhotoForPlace(placeID: String) {
-        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-                if let firstPhoto = photos?.results.first {
-                    self.loadImageForMetadata(photoMetadata: firstPhoto)
-                }
-            }
-        }
-    }
     
+    static func refreshAllDestinationImages(forDestinations destinations: [Destination], moc: NSManagedObjectContext){
+        destinations.forEach({ destination in
+            print("\(destination.name) is being saved")
+        })
+    }
 }

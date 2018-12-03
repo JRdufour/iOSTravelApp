@@ -8,6 +8,7 @@
 
 import UIKit
 import GooglePlaces
+import CoreData
 
 class TripPageTableViewCell: UITableViewCell {
     
@@ -33,6 +34,8 @@ class TripPageTableViewCell: UITableViewCell {
         shadowView.layer.shadowOpacity = 0.6
         shadowView.layer.shadowRadius = 2.0
         
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -41,32 +44,5 @@ class TripPageTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func loadFirstPhotoForPlace(placeID: String) {
-        
-        GMSPlacesClient.shared().lookUpPhotos(forPlaceID: placeID) { (photos, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-                if let firstPhoto = photos?.results.first {
-                    self.saveImageForMetadata(photoMetadata: firstPhoto, forKey: placeID)
-                }
-            }
-        }
-    }
     
-    func saveImageForMetadata(photoMetadata: GMSPlacePhotoMetadata, forKey key: String) {
-        GMSPlacesClient.shared().loadPlacePhoto(photoMetadata, callback: {
-            (photo, error) -> Void in
-            if let error = error {
-                // TODO: handle the error.
-                print("Error: \(error.localizedDescription)")
-            } else {
-               // ImageManager.saveImage(imageToSave: photo!, forKey: key)
-               // ImageManager.retrieveImage(forKey: key)
-                self.TripImage.image = photo;
-                //self.attributionTextView.attributedText = photoMetadata.attributions;
-            }
-        })
-    }
 }

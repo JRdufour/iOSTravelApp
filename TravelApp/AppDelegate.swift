@@ -26,7 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             mainVC.moc = persistentContainer.viewContext
         }
 
-        //call the google functions here
         return true
     }
     

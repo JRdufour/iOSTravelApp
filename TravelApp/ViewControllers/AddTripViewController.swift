@@ -79,6 +79,8 @@ class AddTripViewController: UITableViewController {
         newDestination.placeId = location.placeID
         newDestination.latitude = location.coordinate.latitude
         newDestination.longitude = location.coordinate.longitude
+        ImageManager.saveFirstPhotoForPlace(destination: newDestination, moc: moc)
+        
         newTrip.addToDestinations(newDestination)
         }
         print("adding trip...")
