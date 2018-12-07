@@ -518,21 +518,24 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="rRW-QF-33s" kind="presentation" modalPresentationStyle="overFullScreen" id="EVt-bp-erx"/>
+                                                    <segue destination="rRW-QF-33s" kind="presentation" identifier="newAgendaItemSegue" modalPresentationStyle="overFullScreen" id="EVt-bp-erx"/>
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Csn-8e-Fou">
-                                                <rect key="frame" x="8" y="52" width="335" height="280"/>
+                                                <rect key="frame" x="0.0" y="52" width="343" height="280"/>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="agendaCell" id="Saw-P9-Qce">
-                                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
+                                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Saw-P9-Qce" id="vPS-iD-TtU">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </tableViewCellContentView>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <segue destination="rRW-QF-33s" kind="presentation" identifier="agendaDetailSegue" modalPresentationStyle="overFullScreen" id="o35-Eg-tgo"/>
                                                         </connections>
@@ -549,7 +552,7 @@
                                             <constraint firstItem="Csn-8e-Fou" firstAttribute="top" secondItem="dXy-bY-mPU" secondAttribute="bottom" constant="8" id="Ttq-Ol-gB0"/>
                                             <constraint firstItem="Fkl-nZ-dkE" firstAttribute="top" secondItem="s1R-Vh-hqh" secondAttribute="top" constant="8" id="eU5-dy-SA8"/>
                                             <constraint firstAttribute="trailing" secondItem="dXy-bY-mPU" secondAttribute="trailing" constant="16" id="grf-Wi-oe4"/>
-                                            <constraint firstItem="Csn-8e-Fou" firstAttribute="leading" secondItem="s1R-Vh-hqh" secondAttribute="leading" constant="8" id="mlu-Pe-UJh"/>
+                                            <constraint firstItem="Csn-8e-Fou" firstAttribute="leading" secondItem="s1R-Vh-hqh" secondAttribute="leading" id="mlu-Pe-UJh"/>
                                             <constraint firstAttribute="trailing" secondItem="Csn-8e-Fou" secondAttribute="trailing" id="xMH-0L-LMI"/>
                                         </constraints>
                                     </view>
@@ -653,6 +656,7 @@
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sya-En-6KC">
                                         <rect key="frame" x="53" y="0.0" width="230" height="30"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="LLl-UN-Tdn"/>
                                         </constraints>
@@ -674,7 +678,6 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="29r-Ok-Dih">
                                         <rect key="frame" x="0.0" y="35.5" width="343" height="272.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -685,20 +688,36 @@
                                     <constraint firstAttribute="bottom" secondItem="29r-Ok-Dih" secondAttribute="bottom" id="vzO-za-EzD"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWK-ZM-B2I">
+                                <rect key="frame" x="16" y="621" width="343" height="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="UpdateAgendaItem:" destination="rRW-QF-33s" eventType="touchUpInside" id="wgq-W7-wVr"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="waS-uF-O6O" firstAttribute="top" secondItem="b04-aH-lUw" secondAttribute="bottom" constant="25" id="7V4-AJ-J8h"/>
                             <constraint firstItem="CVw-32-ndL" firstAttribute="top" secondItem="waS-uF-O6O" secondAttribute="bottom" constant="16" id="9fs-mb-msw"/>
+                            <constraint firstItem="YgF-Sv-u7M" firstAttribute="trailing" secondItem="hWK-ZM-B2I" secondAttribute="trailing" constant="16" id="Amu-F9-EJc"/>
+                            <constraint firstItem="hWK-ZM-B2I" firstAttribute="leading" secondItem="YgF-Sv-u7M" secondAttribute="leading" constant="16" id="GBo-9L-QPl"/>
                             <constraint firstItem="YgF-Sv-u7M" firstAttribute="trailing" secondItem="CVw-32-ndL" secondAttribute="trailing" constant="16" id="GsD-JC-xmI"/>
                             <constraint firstItem="b04-aH-lUw" firstAttribute="centerX" secondItem="lNI-rw-Ij7" secondAttribute="centerX" id="Jl3-J1-YmF"/>
                             <constraint firstItem="YgF-Sv-u7M" firstAttribute="bottom" secondItem="CVw-32-ndL" secondAttribute="bottom" constant="228.5" id="LeW-yb-noF"/>
+                            <constraint firstItem="YgF-Sv-u7M" firstAttribute="bottom" secondItem="hWK-ZM-B2I" secondAttribute="bottom" constant="16" id="Wju-ES-OGm"/>
                             <constraint firstItem="b04-aH-lUw" firstAttribute="top" secondItem="YgF-Sv-u7M" secondAttribute="top" constant="8" id="noA-XP-emS"/>
                             <constraint firstItem="CVw-32-ndL" firstAttribute="leading" secondItem="YgF-Sv-u7M" secondAttribute="leading" constant="16" id="r4t-BA-m2f"/>
                             <constraint firstItem="waS-uF-O6O" firstAttribute="leading" secondItem="YgF-Sv-u7M" secondAttribute="leading" constant="16" id="v4L-pZ-WjZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YgF-Sv-u7M"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="Sya-En-6KC" id="gnp-dW-lPp"/>
+                        <outlet property="notes" destination="29r-Ok-Dih" id="2Wb-1v-ayZ"/>
+                        <outlet property="notesTextField" destination="29r-Ok-Dih" id="YgY-9m-11j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TCi-1s-wMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -802,6 +821,6 @@
         <image name="pin" width="43.810028076171875" height="49.286281585693359"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="o35-Eg-tgo"/>
+        <segue reference="EVt-bp-erx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,17 +38,7 @@ class PlaceDetailViewController: UIViewController {
             if let items = destination?.agendaItems {
                 self.agenda = Array(items) as? [AgendaItem]
             }
-            var testItem = AgendaItem(context: moc)
-            testItem.title = "TEST ITEM"
-            testItem.destination = dest
-            do{
-                print("SAVING TEST ITEM")
-                try moc.save()
-                
-            } catch {
-                
-                
-            }
+           
             if let photo = ImageManager.retrieveImage(forDestination: dest, moc: moc){
                 placeImageView.image = photo
                 self.placeImageInverted.image = UIImage(cgImage: photo.cgImage!
@@ -67,6 +57,25 @@ class PlaceDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AgendaDetailViewController
+        vc.moc = moc
+        vc.dest = destination
+        if segue.identifier == "agendaDetailSegue"{
+            //existing agenda item
+            if let selectedIndex = agendaTableVIew.indexPathForSelectedRow{
+                vc.agendaItem = agenda![selectedIndex.row]
+            }
+        }
+        
+        if segue.identifier == "newAgendaItemSegue"{
+            //new agenda item
+            vc.agendaItem = nil
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.agendaTableVIew.reloadData()
+    }
 
 
 }
@@ -81,8 +90,39 @@ extension PlaceDetailViewController: UITableViewDataSource{
         let item = agenda[indexPath.row]
         let cell = agendaTableVIew.dequeueReusableCell(withIdentifier: "agendaCell")
         cell?.textLabel?.text = item.title
-        
+        cell?.textLabel?.textColor = UIColor.white
         return cell!
+    }
+    
+    
+}
+
+
+extension PlaceDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            //alert asking to confirm delete
+            //let cell = tripListTableView.cellForRow(at: indexPath)
+            
+            //ask to confirm delete
+            var deleteMessage = "Are you sure you want to delete this item?"
+            let item = agenda[indexPath.row]
+            let alert = UIAlertController(title: "Delete Agenda Item", message: deleteMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Default action"), style: .cancel , handler: nil ))
+            alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { _ in
+                self.moc.delete(item)
+                do{
+                    try self.moc.save()
+                }catch{
+                    
+                }
+                self.agendaTableVIew.reloadData()
+            }))
+            self.present(alert, animated: true, completion: nil)
+            return
+            
+            //tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
     
     
